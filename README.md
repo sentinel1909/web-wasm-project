@@ -8,13 +8,17 @@ Inspiration for this template came from:
 
 To work in dev mode, at a terminal prompt type:
 
+```
 cd web-wasm-project/frontend
 trunk serve
+```
 
 At a new terminal prompt type:
 
+```
 cd web-wasm-project/server
 cargo watch -- cargo run -- --port 8081
+```
 
 Go to http://localhost:8080 in the browser of your choice.
 
