@@ -7,6 +7,7 @@ use yew_router::prelude::*;
 
 use webwasmproject::views::views::Home;
 
+// define routes
 #[derive(Clone, Routable, PartialEq)]
 enum Route {
     #[at("/")]
@@ -15,6 +16,7 @@ enum Route {
     HelloServer,
 }
 
+// switch function for routes
 fn switch(routes: &Route) -> Html {
     match routes {
         Route::Home => html! { <Home /> },
@@ -22,16 +24,31 @@ fn switch(routes: &Route) -> Html {
     }
 }
 
+// main app component
+struct App {}
 
-#[function_component(App)]
-fn app() -> Html {
-    html! {
-        <BrowserRouter>
-            <Switch<Route> render={Switch::render(switch)} />
-        </BrowserRouter>
+impl Component for App {
+    type Message = ();
+    type Properties = ();
+
+    fn create(ctx: &Context<Self>) -> Self {
+        Self {}
+    }
+
+    fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
+        false
+    }
+
+    fn view(&self, ctx: &Context<Self>) -> Html {
+        html! {
+            <BrowserRouter>
+                <Switch<Route> render={Switch::render(switch)} />
+            </BrowserRouter>
+        }
     }
 }
 
+// api response component
 #[function_component(HelloServer)]
 fn hello_server() -> Html {
     let data = use_state(|| None);

@@ -20,6 +20,10 @@ impl Component for Home {
         Self
     }
 
+    fn update(&mut self, ctx: &Context<Self>, msg: Self::Message) -> bool {
+        false
+    }
+
     fn view(&self, ctx: &Context<Self>) -> Html {
         html! {
             <>
